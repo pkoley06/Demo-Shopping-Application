@@ -3,8 +3,6 @@ import 'dart:convert' show json;
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  //GET REQUEST
-
   Future getAllPost() async {
     final allProductUrl = Uri.parse('https://fakestoreapi.com/products');
     final response = await http.get(allProductUrl);
@@ -46,8 +44,6 @@ class ApiService {
     print(response.body);
     return json.decode(response.body);
   }
-
-//POST REQUEST
 
   Future logInUser(String username, String password) async {
     final loginUrl = Uri.parse("https://fakestoreapi.com/auth/login");
