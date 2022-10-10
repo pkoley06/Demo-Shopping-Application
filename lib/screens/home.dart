@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rest_api_udemy/screens/all_Category.dart';
+import 'package:rest_api_udemy/screens/cart_details.dart';
 import 'package:rest_api_udemy/screens/product_details.dart';
 import 'package:rest_api_udemy/services/apiSevice.dart';
 
@@ -22,7 +23,15 @@ class HomePage extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (context) => const AllCategory()));
                 },
-                icon: const Icon(Icons.menu))
+                icon: const Icon(Icons.menu)),
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const CartDetails()));
+                },
+                icon: const Icon(Icons.shopping_bag))
           ],
         ),
         body: FutureBuilder(
@@ -36,8 +45,8 @@ class HomePage extends StatelessWidget {
                       title: Text(snapshot.data[index]['title']),
                       leading: Image.network(
                         snapshot.data[index]['image'],
-                        width: 50,
-                        height: 30,
+                        width: 80,
+                        height: 60,
                       ),
                       subtitle:
                           Text("price -\$${snapshot.data[index]["price"]}"),

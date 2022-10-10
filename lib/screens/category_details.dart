@@ -23,8 +23,8 @@ class ProductByCategory extends StatelessWidget {
                       title: Text(snapshot.data[index]['title']),
                       leading: Image.network(
                         snapshot.data[index]['image'],
-                        width: 30,
-                        height: 20,
+                        width: 80,
+                        height: 60,
                       ),
                       subtitle:
                           Text('price -\$ ${snapshot.data[index]['price']}'),

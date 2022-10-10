@@ -36,4 +36,24 @@ class ApiService {
     print(response.body);
     return json.decode(response.body);
   }
+
+  Future getCart(String userId) async {
+    final cartDetailsUrl = Uri.parse('https://fakestoreapi.com/carts/$userId');
+    final response = await http.get(cartDetailsUrl);
+    print(response.statusCode);
+    print(response.body);
+    return json.decode(response.body);
+  }
+
+  Future logInUser(String username, String password) async {
+    final loginUrl = Uri.parse("https://fakestoreapi.com/auth/login");
+    final response = await http
+        .post(loginUrl, body: {'username': username, 'password': password});
+    print(response.statusCode);
+    print(response.body);
+    if (response.statusCode == 200) {
+      return json.decode(response.body);
+    }
+    return response.body;
+  }
 }
